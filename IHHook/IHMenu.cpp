@@ -334,7 +334,7 @@ namespace IHHook {
 			menuItems.push_back("If IH is not installed then");
 			menuItems.push_back("delete MGS_TPP\\dinput8.dll");
 			menuItems.push_back("to remove IHHook");
-			menuItems.push_back("");
+			menuItems.push_back("*** TESTING ***");
 
 			if (errorMessages.size() > 0) {
 				for each (std::string message in errorMessages) {

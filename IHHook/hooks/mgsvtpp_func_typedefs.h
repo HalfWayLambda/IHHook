@@ -14,6 +14,10 @@
 #include "lua/lua.h"
 #include "lua/lauxlib.h"
 
+// HWL TODO: this is a bad idea, it's included in every other file even though it's used in only one
+// hook
+#include "WWiseStructures.h"
+
 typedef ulonglong (__fastcall StrCode64Func)(const char * buf, longlong len);
 typedef ulonglong (__fastcall PathCode64Func)(const char * strToHash);
 typedef uint (__fastcall FNVHash32Func)(const char * strToHash);
@@ -55,6 +59,8 @@ typedef char (__fastcall PreparePlayerVehicleInGameFunc)(longlong param_1, ulong
 typedef longlong (__fastcall LoadDefaultFpkPtrFuncFunc)(longlong param_1, uint param_2);
 typedef ulonglong * (__fastcall LoadAllVehicleCamoFpksFunc)();
 typedef fox::String * (__fastcall CreateInPlaceFunc)(fox::String * outFoxString, const char * cString);
+typedef ulong (__fastcall PostEventFunc)(ulong, ulong64, ulong, void*, void*,
+	ulong, AkExternalSourceInfo*, ulong);
 typedef lua_State * (__fastcall lua_newstateFunc)(lua_Alloc f, void * ud);
 typedef void (__fastcall lua_closeFunc)(lua_State * L);
 typedef lua_State * (__fastcall lua_newthreadFunc)(lua_State * L);
@@ -221,6 +227,7 @@ extern PreparePlayerVehicleInGameFunc* PreparePlayerVehicleInGame;
 extern LoadDefaultFpkPtrFuncFunc* LoadDefaultFpkPtrFunc;
 extern LoadAllVehicleCamoFpksFunc* LoadAllVehicleCamoFpks;
 extern CreateInPlaceFunc* CreateInPlace;
+extern PostEventFunc* PostEvent;
 extern lua_newstateFunc* lua_newstate;
 extern lua_closeFunc* lua_close;
 extern lua_newthreadFunc* lua_newthread;

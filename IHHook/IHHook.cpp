@@ -17,6 +17,7 @@
 #include "Hooks_Buddy.h" //ZIP: For buddies
 #include "Hooks_Vehicle.h" //ZIP: For vehicles
 #include "Hooks_FoxString.h" //ZIP: FoxString hook
+#include "Hooks_WWise.h"
 
 #include "RawInput.h"
 
@@ -739,6 +740,7 @@ namespace IHHook {
 		config.logFileLoad = false;
 		config.forceUsePatterns = false;
 		config.logFoxStringCreateInPlace = false; //ZIP: Fox hooks
+		config.enableWWiseHooks = false;
 
 		std::string line;
 		while (std::getline(infile, line)) {
@@ -814,6 +816,9 @@ namespace IHHook {
 			else if (varName == "logFoxStringCreateInPlace") { //ZIP: Fox hooks
 				config.logFoxStringCreateInPlace = valueStr == "true";
 			}
+			else if (varName == "enableWWiseHooks") {
+				config.enableWWiseHooks = valueStr == "true";
+			}
 		}//while line
 
 		return true;
@@ -878,5 +883,6 @@ namespace IHHook {
 		Hooks_Buddy::CreateHooks(); //ZIP: For buddies
 		Hooks_Vehicle::CreateHooks(); //ZIP: For vehicles
 		Hooks_FoxString::CreateHooks(); //ZIP: FoxString hook
+		Hooks_WWise::CreateHooks();
 	}//CreateAllHooks
 }//namespace IHHook

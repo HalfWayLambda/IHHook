@@ -51,6 +51,7 @@ namespace IHHook {
 		{"LoadDefaultFpkPtrFunc", 0x14314bda0},
 		{"LoadAllVehicleCamoFpks", 0x145006860},
 		{"CreateInPlace", 0x142e8a5d0},
+		{"PostEvent", 0x143f36e70}, // HWL TEMP
 		{"lua_newstate", 0x14c1fc960},//tex could use default implementation, but may want to hook if we want to see what the engine is up to
 		{"lua_close", 0x14c1fc380},
 		{"lua_newthread", 0x14c1d9d90},

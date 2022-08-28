@@ -61,6 +61,7 @@ namespace IHHook {
 		bool logFileLoad{ false };
 		bool forceUsePatterns{ false };
 		bool logFoxStringCreateInPlace{ false }; //ZIP: Fox hooks
+		bool enableWWiseHooks{ false };
 	};
 	extern struct Config config;
 	static const std::string hookConfigName = "ihhook_config.lua";
